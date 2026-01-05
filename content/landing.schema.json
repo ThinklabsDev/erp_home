@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "tERP Landing Page",
+  "type": "object",
+  "required": [
+    "siteMeta",
+    "hero",
+    "painPoints",
+    "solution",
+    "modules",
+    "features",
+    "integrations",
+    "deployment",
+    "benefits",
+    "footer"
+  ],
+  "properties": {
+    "siteMeta": {
+      "type": "object",
+      "required": ["title", "description"],
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "logo": { "type": "string", "format": "uri" },
+        "primaryColor": { "type": "string" }
+      }
+    },
+    "site": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "required": ["title", "description"],
+          "properties": {
+            "title": { "type": "string" },
+            "description": { "type": "string" },
+            "logo": { "type": "string", "format": "uri" },
+            "primaryColor": { "type": "string" }
+          }
+        }
+      }
+    },
+    "hero": {
+      "type": "object",
+      "required": ["headline","subheadline","ctaPrimary","ctaSecondary","heroMockupImage"],
+      "properties": {
+        "headline": { "type": "string" },
+        "subheadline": { "type": "string" },
+        "ctaPrimary": {
+          "type": "object",
+          "required": ["text","url"],
+          "properties": { "text": {"type":"string"}, "url": {"type":"string","format":"uri"} }
+        },
+        "ctaSecondary": {
+          "type": "object",
+          "required": ["text","url"],
+          "properties": { "text": {"type":"string"}, "url": {"type":"string","format":"uri"} }
+        },
+        "heroMockupImage": { "type": "string", "format": "uri" }
+      }
+    },
+    "painPoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "description"],
+        "properties": {
+          "icon": { "type": "string" },
+          "title": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "solution": {
+      "type": "object",
+      "required": ["bullets","diagramImage"],
+      "properties": {
+        "bullets": { "type": "array", "items": { "type": "string" } },
+        "diagramImage": { "type": "string", "format": "uri" }
+      }
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key","title","subtitle","size","icon","link"],
+        "properties": {
+          "key": { "type": "string" },
+          "title": { "type": "string" },
+          "subtitle": { "type": "string" },
+          "size": { "type": "string", "enum": ["sm","md","lg"] },
+          "icon": { "type": "string" },
+          "link": { "type": "string","format":"uri" }
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["blockId","title","bullets","mockupImage"],
+        "properties": {
+          "blockId": { "type": "string" },
+          "title": { "type": "string" },
+          "bullets": { "type": "array", "items": { "type": "string" } },
+          "mockupImage": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "integrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name","logoUrl"],
+        "properties": {
+          "name": { "type": "string" },
+          "logoUrl": { "type": "string", "format": "uri" }
+        }
+      }
+    },
+    "deployment": {
+      "type": "object",
+      "required": ["cloud","onPrem"],
+      "properties": {
+        "cloud": {
+          "type": "object",
+          "required": ["title","bullets"],
+          "properties": {
+            "title": { "type": "string" },
+            "bullets": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "onPrem": {
+          "type": "object",
+          "required": ["title","bullets"],
+          "properties": {
+            "title": { "type": "string" },
+            "bullets": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "benefits": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["metric","label","description"],
+        "properties": {
+          "metric": { "type": "string" },
+          "label": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "footer": {
+      "type": "object",
+      "required": ["ctas","links","copyright"],
+      "properties": {
+        "ctas": {
+          "type": "array",
+          "items": { "type": "object", "required":["text","url"], "properties": { "text": {"type":"string"}, "url": {"type":"string","format":"uri"} } }
+        },
+        "links": {
+          "type": "array",
+          "items": { "type": "object", "required":["label","url"], "properties": { "label": {"type":"string"}, "url": {"type":"string","format":"uri"} } }
+        },
+        "copyright": { "type": "string" }
+      }
+    }
+  }
+}

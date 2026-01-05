@@ -8,7 +8,7 @@ interface SectionProps {
 
 export const Section: React.FC<SectionProps> = ({ children, className = "", id }) => {
   return (
-    <section id={id} className={`py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-[1940px] mx-auto ${className}`}>
+    <section id={id} className={`py-16 md:py-24 px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto ${className}`}>
       {children}
     </section>
   );
